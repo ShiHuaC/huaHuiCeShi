@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--映射文件-->
+<mapper namespace="dao.FlowerMapper">
+    <select id="cx" resultType="Flower">
+        SELECT `id`,`name`,`anothername`,`property`,`price`,`production`,path FROM `flower`
+    </select>
+    <select id="cxcm" resultType="int">
+        SELECT COUNT(id) FROM `flower` WHERE `name`=#{name}
+    </select>
+    <insert id="add" parameterType="Flower">
+        INSERT INTO `flower` VALUES(NULL,#{name},#{anothername},#{property},#{price},#{production},#{path})
+    </insert>
+</mapper>
